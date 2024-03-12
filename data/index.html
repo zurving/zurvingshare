@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <title>ZurvingShare</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="/z/s/r/share.js"></script>
+        <style>
+            body{
+                background-color:black;
+                font-family: Raleway, Helvetica, sans-serif;
+    	        font-size: 2rem;
+                color: white;
+            }
+
+            .topbar{
+                position:absolute;
+                top:5px;
+                height: 45px;
+                left: 0px;
+                right: 0px;
+                background-color: blue;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .bottombar{
+                position:absolute;
+                bottom:5px;
+                height: 45px;
+                left: 0px;
+                right: 0px;
+                background-color: blue;
+                padding-left: 15px;
+                padding-right: 15px;
+            }            
+
+            .sharesimage{
+                float:right;
+            }
+
+            .statsimage{
+                float:right;
+            }
+
+            .headertext{
+                margin-top: -5px;
+                color: lightblue;
+            }
+
+            #content{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* sets 3 columns with equal width */
+                position: absolute;
+                top: 75px;
+                left: 50%;
+                column-gap: 10px;
+                row-gap: 10px;
+            }
+
+            .gridcontent {
+                border: solid 1px blue;
+                border-radius: 5px;
+                text-align: center;
+                background-color: blue;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                flex-direction: column;
+            }
+
+            .load {
+                grid-column-start: 1;
+                grid-column-end: 1;
+                grid-row-start: 1;
+                grid-row-end: 1;
+            }
+            .cpu_temp {
+                grid-column-start: 2;
+                grid-column-end: 2;
+                grid-row-start: 1;
+                grid-row-end: 1;
+            }
+
+            .memory {
+                grid-column-start: 1;
+                grid-column-end: 1;
+                grid-row-start: 2;
+                grid-row-end: 2;
+            }
+            .desc {
+                grid-column-start: 2;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 2;
+                background-color: lightblue;
+                color: blue;
+            }
+            .upload {
+                grid-column-start: 1;
+                grid-column-end: 1;
+                grid-row-start: 3;
+                grid-row-end: 3;
+            }
+            .download {
+                grid-column-start: 2;
+                grid-column-end: 2;
+                grid-row-start: 3;
+                grid-row-end: 3;
+            }
+    </style>
+    </head>
+    <body>
+        <div class="topbar">
+            <image src="/z/s/r/shares.png" class="sharesimage"/>
+            <image src="/z/s/r/stats.png" class="statsimage"/>
+            <h2 class="headertext">ZurvingShare</h2>
+        </div>
+
+        <div class="bottombar">
+            <image src="/z/s/r/shares.png" class="sharesimage"/>
+            <image src="/z/s/r/stats.png" class="statsimage"/>
+        </div>
+    </body>
+</html>

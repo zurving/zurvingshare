@@ -3,8 +3,30 @@
 import qrcode
 import cherrypy
 import io
+import redirector
+import status
+import shares
 
-class PQR(object):
+class zurving_share(object):
+
+    config = {
+        '/r':
+            {
+            'tools.gzip.on': True,
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': '/ssd/workspace/zurvingshare/data',
+            'tools.staticdir.index': 'index.html'
+            },
+        'status':
+            {
+            'interface': 'eth0'
+            },
+        'global':
+            {
+            'server.socket_host': '0.0.0.0',
+            'server.socket_port': 8081
+            }
+    }
 
     @cherrypy.expose
     def index(self, code='QR Code using make() function'):
@@ -19,5 +41,8 @@ class PQR(object):
         img_byte_arr = img_byte_arr.getvalue()
         return img_byte_arr
 
-cherrypy.quickstart(PQR(), '/pqr/qr', 'static.conf' )
+cherrypy.tree.mount(redirector.Redirector(),'/')
+cherrypy.tree.mount(shares.Shares(), '/z/shares', zurving_share.config)
+cherrypy.tree.mount(status.Status(),'/z/status', zurving_share.config)
+cherrypy.quickstart(zurving_share(), '/z/s', zurving_share.config)
  
